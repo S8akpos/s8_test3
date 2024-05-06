@@ -22,5 +22,14 @@ pipeline {
                 echo 'Deploying...'
             }
         }
+        stage (listing) {
+            steps {
+                script {
+                    sh """
+                    ls -l
+                    """
+                }
+            }
+        }
     }
 }
