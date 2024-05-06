@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    
+    triggers {
+        githubpush()
+    }
     stages {
         stage('Build') {
             steps {
@@ -12,6 +14,12 @@ pipeline {
             steps {
                 // Your test steps here
                 echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Your deployment steps here
+                echo 'Deploying...'
             }
         }
         stage('Deploy') {
